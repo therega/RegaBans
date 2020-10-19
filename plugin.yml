@@ -1,0 +1,62 @@
+name: RegaBans
+main: fun.rega.RegaBans.Main
+version: 1.0.0
+author: TheRega
+website: (vk.com/therega)
+softdepend: [PermisionsEx]
+
+
+commands:
+    ban:
+    tempban:
+        aliases: [tban]
+    banip:
+    tempbanip:
+        aliases: [tbanip]
+    unban:
+    unbanip:
+    mute:
+    tempmute:
+        aliases: [tmute]
+    unmute:
+    kick:
+    check:
+        aliases: [rbc]
+    rb:
+        aliases: [regabans]
+
+permisions:
+    RegaBans.offline:
+    RegaBans.commands.ban:
+    RegaBans.commands.tempban:
+    RegaBans.commands.unban:
+    RegaBans.commands.banip:
+    RegaBans.commands.tempbanip:
+    RegaBans.commands.unbanip:
+    RegaBans.commands.mute:
+    RegaBans.commands.tempmute:
+    RegaBans.commands.unmute:
+    RegaBans.commands.kick:
+    RegaBans.commands.check:
+    RegaBans.commands.rb:
+    RegaBans.bypass.a.ban:
+    RegaBans.bypass.a.tempban:
+    RegaBans.bypass.a.banip:
+    RegaBans.bypass.a.tempbanip:
+    RegaBans.bypass.a.mute:
+    RegaBans.bypass.a.tempmute:
+    RegaBans.bypass.a.kick:
+    RegaBans.bypass.b.ban:
+    RegaBans.bypass.b.tempban:
+    RegaBans.bypass.b.banip:
+    RegaBans.bypass.b.tempbanip:
+    RegaBans.bypass.b.mute:
+    RegaBans.bypass.b.tempmute:
+    RegaBans.bypass.b.kick:
+    RegaBans.override.ban:
+    RegaBans.override.tempban:
+    RegaBans.override.banip:
+    RegaBans.override.tempbanip:
+    RegaBans.override.mute:
+    RegaBans.override.tempmute:
+    RegaBans.override.kick:

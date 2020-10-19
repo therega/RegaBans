@@ -1,0 +1,67 @@
+#Плагин разработал TheRega.
+#Если Вы обнаружите какой-либо баг, незамедлительно сообщите нам.
+#Vk: vk.com/therega, группа: vk.com/waterstudio_ru
+
+
+# База данных
+mysql:
+    host: localhost
+    port: 3306
+    database: rega
+    username: rega
+    password: rega
+
+# Лимиты    
+limits:
+    #
+    # максимальное время ограничения для разных групп (в минутах)
+    # если группы игрока нет в данном списке - лимит к группе не применяется
+    #
+    ban:
+        max_time: # Максимальное время бана
+            helper: 50
+            owner: 100
+    banip:
+        max_time: # Максимальное время бана по IP
+            helper: 50
+            owner: 100
+    mute:
+        max_time: # Максимальное время мута
+            helper: 50
+            owner: 100
+        blocked_commands: # Команды которые не будут работать при муте
+            - '/msg'
+            - '/tell'
+            - '/m'
+
+# Защита игроков            
+protect:
+    players_protected: # Игроков из этого списка нельзя избрать целью любой из команд плагина
+    - 'TheRega'
+    players_overrided: # Игроки из этого списка могут забанить всех, кроме людей из списка выше
+    - 'TheRega'
+
+# Сообщения 
+# Для переноса строки использовать - %newline%
+# Для отображения ника игрока который наказал - %owner%
+# Для отображения причины - %reason%
+# Для отображения ника игрока которого наказали - %player%
+# Для отобрадения времени наказания - %time%
+messages:
+    broadcast_kick: '§cИгрок §6%player%§c был кикнут администратором §6%owner%§c по причине §6%reason%§c.'
+    broadcast_ban: '§cИгрок §6%player%§c был забанен администратором §6%owner%§c по причине §6%reason%§c навсегда.'
+    broadcast_tempban: '§cИгрок §6%player%§c был забанен администратором §6%owner%§c по причине §6%reason%§c на §6%time%§c.'
+    broadcast_mute: '§cНа игрока §6%player%§c был наложен мут администратором §6%owner%§c по причине §6%reason%§c навсегда.'
+    broadcast_tempmute: '§cНа игрока §6%player%§c был наложен мут администратором §6%owner%§c по причине §6%reason%§c на §6%time%§c.'
+    broadcast_banip: '§cIP адрес §6%player%§c был забанен администратором §6%owner%§c по причине §6%reason%§c навсегда.'
+    broadcast_tempbanip: '§cIP адрес §6%player%§c был забанен администратором §6%owner%§c по причине §6%reason%§c на §6%time%§c.'
+    broadcast_unmute: '§cС игрока §6%player%§c был снят мут администратором §6%owner%§c.'
+    broadcast_unban: '§cС игрока §6%player%§c был снят бан администратором §6%owner%§c.'
+    broadcast_unbanip: '§cС игрока §6%player%§c был снят бан по IP администратором §6%owner%§c.'
+    denymsg_kick: '§cВы были кикнуты администратором §6%owner%§c по причине §6%reason%§c.'
+    denymsg_ban: '§cВы были забанены администратором §6%owner%§c по причине §6%reason%§c навсегда.'
+    denymsg_tempban: '§cВы были забанены администратором §6%owner%§c по причине §6%reason%§c. До разбана осталось §6%time%§c.'
+    denymsg_mute: '§cНа вас наложен мут администратором §6%owner%§c по причине §6%reason%§c навсегда.'
+    denymsg_tempmute: '§cНа вас наложен мут администратором §6%owner%§c по причине §6%reason%§c. До снятия мута осталось §6%time%§c.'
+    denymsg_banip: '§cВаш IP забанен администратором §6%owner%§c по причине §6%reason%§c навсегда.'
+    denymsg_tempbanip: '§cВаш IP забанен администратором §6%owner%§c по причине §6%reason%§c. До снятия бана осталось §6%time%§c.'
