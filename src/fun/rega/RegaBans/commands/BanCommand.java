@@ -16,11 +16,11 @@ import fun.rega.RegaBans.utils.Utils;
 public class BanCommand implements CommandExecutor {
   public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
     if (!sender.hasPermission("RegaBans.commands.ban")) {
-      sender.sendMessage("§8[§cRegaBans§8] §cУ вас недостаточно прав");
+      sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ");
       return true;
     } 
     if (args.length == 0) {
-      sender.sendMessage("§8[§cRegaBans§8] §6Правильно использовапние: §c/" + label + " [игрок] [причина] - Забанить игрока навсегда.");
+      sender.sendMessage("В§8[В§cRegaBansВ§8] В§6РџСЂР°РІРёР»СЊРЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РїРЅРёРµ: В§c/" + label + " [РёРіСЂРѕРє] [РїСЂРёС‡РёРЅР°] - Р—Р°Р±Р°РЅРёС‚СЊ РёРіСЂРѕРєР° РЅР°РІСЃРµРіРґР°.");
       return true;
     } 
     if (args.length > 0) {
@@ -31,24 +31,24 @@ public class BanCommand implements CommandExecutor {
         silent = true;
       } 
       if (sender.getName().equalsIgnoreCase(args[0])) {
-        sender.sendMessage("§8[§cRegaBans§8] §cВы не можете забанить сами себя.");
+        sender.sendMessage("В§8[В§cRegaBansВ§8] В§cР’С‹ РЅРµ РјРѕР¶РµС‚Рµ Р·Р°Р±Р°РЅРёС‚СЊ СЃР°РјРё СЃРµР±СЏ.");
         return true;
       } 
       if (Utils.getPlayer(args[0]) == null && !sender.hasPermission("RegaBans.offline")) {
-        sender.sendMessage("§8[§cRegaBans§8] §cИгрок должен быть в сети.");
+        sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРРіСЂРѕРє РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІ СЃРµС‚Рё.");
         return true;
       } 
       if (!Utils.checkAccess(AccessType.BAN, sender, args[0])) {
-        sender.sendMessage("§8[§cRegaBans§8] §cИгрок имеет защиту от банов.");
+        sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРРіСЂРѕРє РёРјРµРµС‚ Р·Р°С‰РёС‚Сѓ РѕС‚ Р±Р°РЅРѕРІ.");
         return true;
       } 
       if (args.length == 1) {
-        sender.sendMessage("§8[§cRegaBans§8] §cУкажите причину.");
+        sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРЈРєР°Р¶РёС‚Рµ РїСЂРёС‡РёРЅСѓ.");
         return true;
       } 
       Ban b = BanManager.getBanByPlayer(args[0]);
       if (BanManager.getBanByPlayer(args[0]) != null) {
-        sender.sendMessage("§8[§cRegaBans§8] §cИгрок уже " + ((b.getType() == BanType.BAN) ? "забанен" : ((b.getType() == BanType.MUTE) ? "замучен" : "забанен по IP")) + ".");
+        sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРРіСЂРѕРє СѓР¶Рµ " + ((b.getType() == BanType.BAN) ? "Р·Р°Р±Р°РЅРµРЅ" : ((b.getType() == BanType.MUTE) ? "Р·Р°РјСѓС‡РµРЅ" : "Р·Р°Р±Р°РЅРµРЅ РїРѕ IP")) + ".");
         return true;
       } 
       String reason = Utils.buildReason(args, 1);
