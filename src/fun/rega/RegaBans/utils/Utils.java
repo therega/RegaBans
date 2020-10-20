@@ -29,27 +29,27 @@ public class Utils {
     String unit = null;
     if (time.endsWith("s")) {
       time = time.replaceAll("s", "");
-      unit = "секунд";
+      unit = "СЃРµРєСѓРЅРґ";
     } else if (time.endsWith("m")) {
       time = time.replaceAll("m", "");
       multi = 60L;
-      unit = "минут";
+      unit = "РјРёРЅСѓС‚";
     } else if (time.endsWith("h")) {
       time = time.replaceAll("h", "");
       multi = 3600L;
-      unit = "часов";
+      unit = "С‡Р°СЃРѕРІ";
     } else if (time.endsWith("d")) {
       time = time.replaceAll("d", "");
       multi = 86400L;
-      unit = "дней";
+      unit = "РґРЅРµР№";
     } else if (time.endsWith("mo")) {
       time = time.replaceAll("mo", "");
       multi = 2678400L;
-      unit = "месяцев";
+      unit = "РјРµСЃСЏС†РµРІ";
     } else if (time.endsWith("y")) {
       time = time.replaceAll("y", "");
       multi = 31536000L;
-      unit = "лет";
+      unit = "Р»РµС‚";
     } else {
       return new BuildTimeResult(false);
     } 
