@@ -18,7 +18,7 @@ public class MySQL {
       Class.forName("com.mysql.jdbc.Driver").newInstance();
       connection = DriverManager.getConnection("jdbc:mysql://" + Main.config.getString("mysql.host") + ":" + Main.config.getInt("mysql.port") + "/" + Main.config.getString("mysql.database") + "?useUnicode=true&characterEncoding=UTF-8&" + "user=" + Main.config.getString("mysql.username") + "&password=" + Main.config.getString("mysql.password"));
       executeSync("CREATE TABLE IF NOT EXISTS `regabans` (`id` int NOT NULL AUTO_INCREMENT, `player` varchar(16) NOT NULL, `type` varchar(16) NOT NULL, `owner` varchar(16) NOT NULL, `time` varchar(16) NOT NULL, `expire` varchar(16) NOT NULL, `reason` varchar(255) NOT NULL, PRIMARY KEY (`id`), UNIQUE KEY `uniq` (`player`)) DEFAULT CHARSET=utf8 AUTO_INCREMENT=0");
-      Logger.info("Соединение с базой данных успешно установлено.");
+      Logger.info("РЎРѕРµРґРёРЅРµРЅРёРµ СЃ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С… СѓСЃРїРµС€РЅРѕ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ.");
     } catch (Exception e) {
       Logger.error("MySQL ERROR: " + e.getMessage());
     } 
@@ -95,7 +95,7 @@ public class MySQL {
           Logger.error(e.getMessage());
         } 
       } 
-      Logger.info("Загружено " + i + " банов.");
+      Logger.info("Р—Р°РіСЂСѓР¶РµРЅРѕ " + i + " Р±Р°РЅРѕРІ.");
     } catch (Exception e) {
       Logger.error(e.getMessage());
     } 
@@ -133,7 +133,7 @@ public class MySQL {
                   for (final Player pl : Bukkit.getOnlinePlayers()) {
                       final Ban b = BanManager.getBanByPlayer(pl.getName());
                       if (b != null && b.getType() != BanType.MUTE) {
-                          pl.kickPlayer("§8[§cRegaBans§8] §cВы были забанены извне.");
+                          pl.kickPlayer("В§8[В§cRegaBansВ§8] В§cР’С‹ Р±С‹Р»Рё Р·Р°Р±Р°РЅРµРЅС‹ РёР·РІРЅРµ.");
                       }
                   }
               }
