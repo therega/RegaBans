@@ -12,7 +12,7 @@ public class UnbanIpCommand implements CommandExecutor
 {
     public boolean onCommand(final CommandSender sender, final Command command, final String label, String[] args) {
         if (!sender.hasPermission("RegaBans.commands.unbanip")) {
-            sender.sendMessage("§8[§cRegaBans§8] §cУ вас недостаточно прав.");
+            sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ.");
             return true;
         }
         boolean silent = false;
@@ -22,8 +22,8 @@ public class UnbanIpCommand implements CommandExecutor
             silent = true;
         }
         if (args.length == 0) {
-            sender.sendMessage("§8[§cRegaBans§8] §6Правильное использование: §c/" + label + " [игрок] - Снять бан с игрока.");
-            sender.sendMessage("§8[§cRegaBans§8] §6Правильное использование: §c/" + label + " [ip] - Снять бан с IP адреса.");
+            sender.sendMessage("В§8[В§cRegaBansВ§8] В§6РџСЂР°РІРёР»СЊРЅРѕРµ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ: В§c/" + label + " [РёРіСЂРѕРє] - РЎРЅСЏС‚СЊ Р±Р°РЅ СЃ РёРіСЂРѕРєР°.");
+            sender.sendMessage("В§8[В§cRegaBansВ§8] В§6РџСЂР°РІРёР»СЊРЅРѕРµ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ: В§c/" + label + " [ip] - РЎРЅСЏС‚СЊ Р±Р°РЅ СЃ IP Р°РґСЂРµСЃР°.");
             return true;
         }
         if (args.length <= 0) {
@@ -31,7 +31,7 @@ public class UnbanIpCommand implements CommandExecutor
         }
         final Ban ban = BanManager.getBanByPlayer(args[0]);
         if (ban == null || (ban != null && ban.getType() != BanType.BANIP)) {
-            sender.sendMessage("§8[§cRegaBans§8] §cНа игрока неналожен бан IP.");
+            sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРќР° РёРіСЂРѕРєР° РЅРµРЅР°Р»РѕР¶РµРЅ Р±Р°РЅ IP.");
             return true;
         }
         BanManager.removeBan(ban.getPlayer());
