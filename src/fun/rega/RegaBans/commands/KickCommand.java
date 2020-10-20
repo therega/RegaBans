@@ -16,11 +16,11 @@ import fun.rega.RegaBans.utils.Utils;
 public class KickCommand implements CommandExecutor {
   public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
     if (!sender.hasPermission("RegaBans.commands.kick")) {
-      sender.sendMessage("§8[§cRegaBans§8] §cУ вас недостаточно прав.");
+      sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ.");
       return true;
     } 
     if (args.length == 0) {
-      sender.sendMessage("§8[§cRegaBans§8] §6Правильное использование: §c/" + label + " [игрок] [причина] - Кикнуть игрока.");
+      sender.sendMessage("В§8[В§cRegaBansВ§8] В§6РџСЂР°РІРёР»СЊРЅРѕРµ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ: В§c/" + label + " [РёРіСЂРѕРє] [РїСЂРёС‡РёРЅР°] - РљРёРєРЅСѓС‚СЊ РёРіСЂРѕРєР°.");
       return true;
     } 
     if (args.length > 0) {
@@ -31,20 +31,20 @@ public class KickCommand implements CommandExecutor {
         silent = true;
       } 
       if (sender.getName().equalsIgnoreCase(args[0])) {
-        sender.sendMessage("§8[§cRegaBans§8] §cВы не можете кикнуть сами себя.");
+        sender.sendMessage("В§8[В§cRegaBansВ§8] В§cР’С‹ РЅРµ РјРѕР¶РµС‚Рµ РєРёРєРЅСѓС‚СЊ СЃР°РјРё СЃРµР±СЏ.");
         return true;
       } 
       Player pl = Utils.getPlayer(args[0]);
       if (pl == null) {
-        sender.sendMessage("§8[§cRegaBans§8] §cИгрок не в сети.");
+        sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРРіСЂРѕРє РЅРµ РІ СЃРµС‚Рё.");
         return true;
       } 
       if (!Utils.checkAccess(AccessType.KICK, sender, args[0])) {
-        sender.sendMessage("§8[§cRegaBans§8] §cИгро имеет защиту от кика.");
+        sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРРіСЂРѕ РёРјРµРµС‚ Р·Р°С‰РёС‚Сѓ РѕС‚ РєРёРєР°.");
         return true;
       } 
       if (args.length == 1) {
-        sender.sendMessage("§8[§cRegaBans§8] §cУкажите причину.");
+        sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРЈРєР°Р¶РёС‚Рµ РїСЂРёС‡РёРЅСѓ.");
         return true;
       } 
       String reason = Utils.buildReason(args, 1);
