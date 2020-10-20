@@ -12,18 +12,18 @@ public class RBCommand implements CommandExecutor
 {
     public boolean onCommand(final CommandSender sender, final Command command, final String label, final String[] args) {
         if (!sender.hasPermission("RegaBans.commands.rb")) {
-            sender.sendMessage("§8[§cRegaBans§8] §cУ вас недостаточно прав.");
+            sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ.");
             return true;
         }
         if (args.length == 0) {
-            sender.sendMessage("§8[§cRegaBans§8] §6Правильное использование: §c/" + label + " reload - перезагрузить конфиг.");
+            sender.sendMessage("В§8[В§cRegaBansВ§8] В§6РџСЂР°РІРёР»СЊРЅРѕРµ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ: В§c/" + label + " reload - РїРµСЂРµР·Р°РіСЂСѓР·РёС‚СЊ РєРѕРЅС„РёРі.");
             return true;
         }
         if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
             Main.config = Config.get("config.yml");
             MySQL.disconnect();
             MySQL.connect();
-            sender.sendMessage("§8[§cRegaBans§8] §aКонфиг успешно перезагружен.");
+            sender.sendMessage("В§8[В§cRegaBansВ§8] В§aРљРѕРЅС„РёРі СѓСЃРїРµС€РЅРѕ РїРµСЂРµР·Р°РіСЂСѓР¶РµРЅ.");
             return true;
         }
         return true;
