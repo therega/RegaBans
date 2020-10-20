@@ -12,7 +12,7 @@ public class UnbanCommand implements CommandExecutor
 {
     public boolean onCommand(final CommandSender sender, final Command command, final String label, String[] args) {
         if (!sender.hasPermission("RegaBans.commands.unban")) {
-            sender.sendMessage("§8[§cRegaBans§8] §cУ вас недостаточно прав.");
+            sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ.");
             return true;
         }
         boolean silent = false;
@@ -22,7 +22,7 @@ public class UnbanCommand implements CommandExecutor
             silent = true;
         }
         if (args.length == 0) {
-            sender.sendMessage("§8[§cRegaBans§8] §6Правильное использование: §c/" + label + " [игрок] - Снять бан с игрока.");
+            sender.sendMessage("В§8[В§cRegaBansВ§8] В§6РџСЂР°РІРёР»СЊРЅРѕРµ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ: В§c/" + label + " [РёРіСЂРѕРє] - РЎРЅСЏС‚СЊ Р±Р°РЅ СЃ РёРіСЂРѕРєР°.");
             return true;
         }
         if (args.length <= 0) {
@@ -30,7 +30,7 @@ public class UnbanCommand implements CommandExecutor
         }
         final Ban ban = BanManager.getBanByPlayer(args[0]);
         if (ban == null || (ban != null && ban.getType() != BanType.BAN)) {
-            sender.sendMessage("§8[§cRegaBans§8] §cНа игрока не наложен бан.");
+            sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРќР° РёРіСЂРѕРєР° РЅРµ РЅР°Р»РѕР¶РµРЅ Р±Р°РЅ.");
             return true;
         }
         BanManager.removeBan(ban.getPlayer());
