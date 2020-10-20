@@ -10,27 +10,27 @@ public class CheckCommand implements CommandExecutor
 {
     public boolean onCommand(final CommandSender sender, final Command command, final String label, final String[] args) {
         if (!sender.hasPermission("RegaBans.commands.check")) {
-            sender.sendMessage("§8[§cRegaBans§8] §cÓ âàñ íåäîñòàòî÷íî ïðàâ.");
+            sender.sendMessage("Â§8[Â§cRegaBansÂ§8] Â§cÐ£ Ð²Ð°Ñ Ð½ÐµÐ´Ð¾ÑÑ‚Ð°Ñ‚Ð¾Ñ‡Ð½Ð¾ Ð¿Ñ€Ð°Ð².");
             return true;
         }
         if (args.length == 0) {
-            sender.sendMessage("§8[§cRegaBans§8] §6Ïðàâèëüíîå èñïîëüçîâàíèå: §c/" + label + " [ip] - Óçíàòü î áàíå IP àäðåñà.");
-            sender.sendMessage("§8[§cRegaBans§8] §6Ïðàâèëüíîå èñïîëüçîâàíèå: §c/" + label + " [èãðîê] - Óçíàòü î áàíå èãðîêà.");
+            sender.sendMessage("Â§8[Â§cRegaBansÂ§8] Â§6ÐŸÑ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ: Â§c/" + label + " [ip] - Ð£Ð·Ð½Ð°Ñ‚ÑŒ Ð¾ Ð±Ð°Ð½Ðµ IP Ð°Ð´Ñ€ÐµÑÐ°.");
+            sender.sendMessage("Â§8[Â§cRegaBansÂ§8] Â§6ÐŸÑ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ: Â§c/" + label + " [Ð¸Ð³Ñ€Ð¾Ðº] - Ð£Ð·Ð½Ð°Ñ‚ÑŒ Ð¾ Ð±Ð°Ð½Ðµ Ð¸Ð³Ñ€Ð¾ÐºÐ°.");
             return true;
         }
         if (args.length > 0) {
             final Ban ban = BanManager.getBanByPlayer(args[0]);
             if (ban == null) {
-                sender.sendMessage("§8[§cRegaBans§8] §cÁàí íå íàéäåí.");
+                sender.sendMessage("Â§8[Â§cRegaBansÂ§8] Â§cÐ‘Ð°Ð½ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½.");
                 return true;
             }
-            sender.sendMessage("§8-=-=-=-=-=-=-=-=-=-=-=-=-=-= §b| §dRegaBans §| §8=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
-            sender.sendMessage(" §8> §aÈãðîê: " + ChatColor.YELLOW + ban.getPlayer());
-            sender.sendMessage(" §8> §aÇàáíåí àäìèíîì: " + ChatColor.YELLOW + ban.getOwner());
-            sender.sendMessage(" §8> §aÒèï áàíà: " + ChatColor.YELLOW + ban.getType());
-            sender.sendMessage(" §8> §aÏðè÷èíà: " + ChatColor.YELLOW + ban.getReason());
-            sender.sendMessage(" §8> §aÐàçáàí ÷åðåç: " + ChatColor.YELLOW + ((ban.getExpire() == 0L) ? "íèêîãäà" : new StringBuilder().append(ban.getTimeLeft()).toString()));
-            sender.sendMessage("§8-=-=-=-=-=-=-=-=-=-=-=-=-=-= §b| §dRegaBans §| §8=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+            sender.sendMessage("Â§8-=-=-=-=-=-=-=-=-=-=-=-=-=-= Â§b| Â§dRegaBans Â§| Â§8=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+            sender.sendMessage(" Â§8> Â§aÐ˜Ð³Ñ€Ð¾Ðº: " + ChatColor.YELLOW + ban.getPlayer());
+            sender.sendMessage(" Â§8> Â§aÐ—Ð°Ð±Ð½ÐµÐ½ Ð°Ð´Ð¼Ð¸Ð½Ð¾Ð¼: " + ChatColor.YELLOW + ban.getOwner());
+            sender.sendMessage(" Â§8> Â§aÐ¢Ð¸Ð¿ Ð±Ð°Ð½Ð°: " + ChatColor.YELLOW + ban.getType());
+            sender.sendMessage(" Â§8> Â§aÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð°: " + ChatColor.YELLOW + ban.getReason());
+            sender.sendMessage(" Â§8> Â§aÐ Ð°Ð·Ð±Ð°Ð½ Ñ‡ÐµÑ€ÐµÐ·: " + ChatColor.YELLOW + ((ban.getExpire() == 0L) ? "Ð½Ð¸ÐºÐ¾Ð³Ð´Ð°" : new StringBuilder().append(ban.getTimeLeft()).toString()));
+            sender.sendMessage("Â§8-=-=-=-=-=-=-=-=-=-=-=-=-=-= Â§b| Â§dRegaBans Â§| Â§8=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
         }
         return true;
     }
