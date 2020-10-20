@@ -48,7 +48,7 @@ public class Ban {
     long left = this.expire - System.currentTimeMillis();
     if (left < 0L)
       left = 0L; 
-    String res = String.format("%d дн, %d ч, %d мин, %d сек", new Object[] { Long.valueOf(TimeUnit.MILLISECONDS.toDays(left)), Long.valueOf(TimeUnit.MILLISECONDS.toHours(left) - TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(left))), Long.valueOf(TimeUnit.MILLISECONDS.toMinutes(left) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(left))), Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(left) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(left))) });
+    String res = String.format("%d РґРЅ, %d С‡, %d РјРёРЅ, %d СЃРµРє", new Object[] { Long.valueOf(TimeUnit.MILLISECONDS.toDays(left)), Long.valueOf(TimeUnit.MILLISECONDS.toHours(left) - TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(left))), Long.valueOf(TimeUnit.MILLISECONDS.toMinutes(left) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(left))), Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(left) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(left))) });
     return res;
   }
   
