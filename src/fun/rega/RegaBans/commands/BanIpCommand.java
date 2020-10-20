@@ -16,12 +16,12 @@ import fun.rega.RegaBans.utils.Utils;
 public class BanIpCommand implements CommandExecutor {
   public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
     if (!sender.hasPermission("RegaBans.commands.banip")) {
-      sender.sendMessage("§8[§cRegaBans§8] §cУ вас недостаточно прав.");
+      sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ.");
       return true;
     } 
     if (args.length == 0) {
-      sender.sendMessage("§8[§cRegaBans§8] §6Правильное использование: §c/" + label + " [игрок] [причина] - Забанить игрока по IP навсегда.");
-      sender.sendMessage("§8[§cRegaBans§8] §6Правильное использование: §c/" + label + " [ip] [причина] - Забанить IP навсегда.");
+      sender.sendMessage("В§8[В§cRegaBansВ§8] В§6РџСЂР°РІРёР»СЊРЅРѕРµ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ: В§c/" + label + " [РёРіСЂРѕРє] [РїСЂРёС‡РёРЅР°] - Р—Р°Р±Р°РЅРёС‚СЊ РёРіСЂРѕРєР° РїРѕ IP РЅР°РІСЃРµРіРґР°.");
+      sender.sendMessage("В§8[В§cRegaBansВ§8] В§6РџСЂР°РІРёР»СЊРЅРѕРµ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ: В§c/" + label + " [ip] [РїСЂРёС‡РёРЅР°] - Р—Р°Р±Р°РЅРёС‚СЊ IP РЅР°РІСЃРµРіРґР°.");
       return true;
     } 
     if (args.length > 0) {
@@ -34,14 +34,14 @@ public class BanIpCommand implements CommandExecutor {
       if (sender instanceof Player) {
         String str = ((Player)sender).getAddress().getHostString();
         if (args[0].equalsIgnoreCase(str) || args[0].equalsIgnoreCase(sender.getName())) {
-          sender.sendMessage("§8[§cRegaBans§8] §cВы неможете забанить сами себя.");
+          sender.sendMessage("В§8[В§cRegaBansВ§8] В§cР’С‹ РЅРµРјРѕР¶РµС‚Рµ Р·Р°Р±Р°РЅРёС‚СЊ СЃР°РјРё СЃРµР±СЏ.");
           return true;
         } 
       } 
       for (Player player : Bukkit.getOnlinePlayers()) {
         if ((args[0].equalsIgnoreCase(player.getName()) || args[0].equals(player.getAddress().getHostString())) && 
           !Utils.checkAccess(AccessType.BANIP, sender, player.getName())) {
-          sender.sendMessage("§8[§cRegaBans§8] §cИгрок имеет защиту от бана.");
+          sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРРіСЂРѕРє РёРјРµРµС‚ Р·Р°С‰РёС‚Сѓ РѕС‚ Р±Р°РЅР°.");
           return true;
         } 
       } 
@@ -50,16 +50,16 @@ public class BanIpCommand implements CommandExecutor {
       if (pl != null) {
         ip = Utils.getPlayer(ip).getAddress().getHostString();
       } else if (!Utils.checkIp(ip)) {
-        sender.sendMessage("§8[§cRegaBans§8] §cИгрок не в сети или неправильно указан IP адрес.");
+        sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРРіСЂРѕРє РЅРµ РІ СЃРµС‚Рё РёР»Рё РЅРµРїСЂР°РІРёР»СЊРЅРѕ СѓРєР°Р·Р°РЅ IP Р°РґСЂРµСЃ.");
         return true;
       } 
       if (args.length == 1) {
-        sender.sendMessage("§8[§cRegaBans§8] §cУкажите причину.");
+        sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРЈРєР°Р¶РёС‚Рµ РїСЂРёС‡РёРЅСѓ.");
         return true;
       } 
       Ban b = BanManager.getBanByPlayer(args[0]);
       if (BanManager.getBanByPlayer(args[0]) != null) {
-        sender.sendMessage("§8[§cRegaBans§8] §cИгрок уже " + ((b.getType() == BanType.BAN) ? "забанен" : ((b.getType() == BanType.MUTE) ? "замучен" : "забанен по IP")) + ".");
+        sender.sendMessage("В§8[В§cRegaBansВ§8] В§cРРіСЂРѕРє СѓР¶Рµ " + ((b.getType() == BanType.BAN) ? "Р·Р°Р±Р°РЅРµРЅ" : ((b.getType() == BanType.MUTE) ? "Р·Р°РјСѓС‡РµРЅ" : "Р·Р°Р±Р°РЅРµРЅ РїРѕ IP")) + ".");
         return true;
       } 
       String reason = Utils.buildReason(args, 1);
